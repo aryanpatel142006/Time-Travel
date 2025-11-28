@@ -1,13 +1,5 @@
 /**
- * This is a port of XorDev's "Centrifuge 2" example using TypeGPU.
- *
- * ## Credits
- * XorDev (xordev.com) for the idea and original implementation
- *
- * ## Original GLSL implementation
- * ```
- * vec3 p,P;for(float z,d,i;i++<5e1;z+=d,o+=(1.2-cos(p.z/vec4(5,1e8,3,0)))/d)p=z*normalize(FC.rgb*2.-r.xyy),P=vec3(atan(p.y-=7.,p.x)/.1+t,p.z*.2-5.*t,length(p.xy)-11.),d=length(vec4(P.z,cos(P+cos(P/.2))-1.))*.5-.1;o=tanh(o/2e2);
- * ```
+ * This is using TypeGPU to create a tunnel effect in WebGPU.
  */
 
 import tgpu from 'typegpu';
@@ -163,7 +155,8 @@ export const controls = {
     },
   },
   'dolly zoom': {
-    initial: 0.2,
+    // initial: 0.2,
+    initial: 1,
     min: 0.01,
     max: 1,
     step: 0.01,
@@ -192,5 +185,8 @@ export function onCleanup() {
   isRunning = false;
   root.destroy();
 }
+
+
+// export default controls
 
 // #endregion
