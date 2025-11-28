@@ -67,7 +67,7 @@ if (body.firstChild) {
 
 // Execute example
 // @ts-expect-error
-const example = await import('./src/time-machine.tsx');
+const example = await import('./src/machine-machenism.tsx');
 
 // Create example controls
 for (const controls of Object.values(example)) {
@@ -251,14 +251,7 @@ type TextAreaControlParam = {
   initial?: string;
 };
 
-type ExampleControlParam =
-  | SelectControlParam
-  | ToggleControlParam
-  | SliderControlParam
-  | ButtonControlParam
-  | TextAreaControlParam
-  | VectorSliderControlParam
-  | ColorPickerControlParam;
+
 
 function hexToRgb(hex: string): readonly [number, number, number] {
   return [

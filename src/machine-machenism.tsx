@@ -130,6 +130,7 @@ function draw(timestamp: number) {
 }
 
 requestAnimationFrame(draw);
+//#endregion
 
 // #region Example controls and cleanup
 
