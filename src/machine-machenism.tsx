@@ -88,7 +88,9 @@ const vertexMain = tgpu['~unstable'].vertexFn({
 });
 
 const presentationFormat = navigator.gpu.getPreferredCanvasFormat();
-const canvas = document.querySelector('canvas') as HTMLCanvasElement;
+// Prefer an explicitly identified canvas for the GPU render target. If not
+// found, fall back to the first canvas in the document.
+const canvas = (document.querySelector('#gpu-canvas') as HTMLCanvasElement) || (document.querySelector('canvas') as HTMLCanvasElement);
 const context = canvas.getContext('webgpu') as GPUCanvasContext;
 
 context.configure({
@@ -107,7 +109,9 @@ let isRunning = true;
 function draw(timestamp: number) {
   if (!isRunning) return;
 
-  aspectRatio.write(canvas.clientWidth / canvas.clientHeight);
+  // Use the drawing buffer size so the shader sees the actual pixel dimensions
+  // (which include devicePixelRatio scaling) instead of CSS pixels.
+  aspectRatio.write(canvas.width / canvas.height);
   time.write((timestamp * 0.001) % 1000);
 
   pipeline

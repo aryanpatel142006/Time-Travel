@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 * {
   box-sizing: border-box;
   /* padding: 0;
@@ -13,7 +16,11 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #242424; */
+
+
+  background-color: #000000;
+   /* Fallback to pure black */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
