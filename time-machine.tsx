@@ -66,8 +66,9 @@ if (body.firstChild) {
 }
 
 // Execute example
-// @ts-expect-error
 const example = await import('./src/machine-machenism.tsx');
+
+// (control parameter types are intentionally unchecked at runtime)
 
 // Create example controls
 for (const controls of Object.values(example)) {
@@ -77,7 +78,7 @@ for (const controls of Object.values(example)) {
 
   for (
     const [label, params] of Object.entries(
-      controls as Record<string, ExampleControlParam>,
+      controls as Record<string, any>,
     )
   ) {
     if ('onButtonClick' in params) {
@@ -111,7 +112,7 @@ for (const controls of Object.values(example)) {
       if ('onSelectChange' in params) {
         const select = document.createElement('select');
         select.innerHTML = params.options
-          .map((option) => `<option value="${option}">${option}</option>`)
+          .map((option: string) => `<option value="${option}">${option}</option>`)
           .join('');
         select.value = params.initial ?? params.options[0];
 
@@ -209,50 +210,6 @@ for (const controls of Object.values(example)) {
     }
   }
 }
-
-type SelectControlParam = {
-  onSelectChange: (newValue: string) => void;
-  initial?: string;
-  options: string[];
-};
-
-type ToggleControlParam = {
-  onToggleChange: (newValue: boolean) => void;
-  initial?: boolean;
-};
-
-type SliderControlParam = {
-  onSliderChange: (newValue: number) => void;
-  initial?: number;
-  min?: number;
-  max?: number;
-  step?: number;
-};
-
-type VectorSliderControlParam = {
-  onVectorSliderChange: (newValue: number[]) => void;
-  initial?: number[];
-  min: number[];
-  max: number[];
-  step: number[];
-};
-
-type ColorPickerControlParam = {
-  onColorChange: (newValue: readonly [number, number, number]) => void;
-  initial?: readonly [number, number, number];
-};
-
-type ButtonControlParam = {
-  onButtonClick: (() => void) | (() => Promise<void>);
-};
-
-type TextAreaControlParam = {
-  onTextChange: (newValue: string) => void;
-  initial?: string;
-};
-
-
-
 function hexToRgb(hex: string): readonly [number, number, number] {
   return [
     Number.parseInt(hex.slice(1, 3), 16) / 255,

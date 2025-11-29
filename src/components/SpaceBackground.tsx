@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SpaceBackground = () => {
   return (
     <div className="fixed inset-0 z-[-1] w-full h-full pointer-events-none overflow-hidden bg-black">
