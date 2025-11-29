@@ -30,18 +30,38 @@ const FallingText: React.FC<FallingTextProps> = ({
 
   useEffect(() => {
     if (!textRef.current) return;
-    const words = text.split(' ');
 
-    const newHTML = words
-      .map(word => {
-        const isHighlighted = highlightWords.some(hw => word.startsWith(hw));
-        return `<span
-          class="inline-block mx-[2px] select-none ${isHighlighted ? 'text-cyan-500 font-bold text-4xl': ''}"
-        >
-          ${word}
-        </span>`;
+    // Preserve whitespace tokens so layout/spacing stays the same
+    const tokens = text.split(/(\s+)/);
+
+    const normalize = (s: string) => s.replace(/[^a-z0-9-]/gi, '').toLowerCase();
+    const normalizedHighlights = highlightWords.map(hw => normalize(hw));
+
+    const matches = tokens.map(token => {
+      if (!/\S/.test(token)) return null;
+      const tokenNorm = normalize(token);
+      const isHighlighted = normalizedHighlights.some(hw => hw.length > 0 && tokenNorm === hw);
+      return { token, tokenNorm, isHighlighted };
+    }).filter(Boolean) as {token:string, tokenNorm:string, isHighlighted:boolean}[];
+
+    // debug: helpful when inspecting in the browser console
+    // eslint-disable-next-line no-console
+    console.debug('FallingText matches:', matches);
+
+    const newHTML = tokens
+      .map(token => {
+        // leave whitespace as-is
+        if (!/\S/.test(token)) return token;
+
+        const tokenNorm = normalize(token);
+        const isHighlighted = normalizedHighlights.some(hw => hw.length > 0 && tokenNorm === hw);
+
+        // inline style fallback so highlights are visible even if Tailwind classes are not applied
+        const inlineStyle = isHighlighted ? 'color: #eed202; font-weight: 700;' : '';
+
+        return `<span class="inline-block mx-[2px] select-none ${isHighlighted ? 'text-cyan-500 font-bold text-4xl' : ''}" style="${inlineStyle}">${token}</span>`;
       })
-      .join(' ');
+      .join('');
 
     textRef.current.innerHTML = newHTML;
   }, [text, highlightWords]);
@@ -191,7 +211,8 @@ const FallingText: React.FC<FallingTextProps> = ({
         className="inline-block"
         style={{
           fontSize,
-          lineHeight: 1.4
+          lineHeight: 1.4,
+          fontFamily: 'Centauri, sans-serif',
         }}
       />
 

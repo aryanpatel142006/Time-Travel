@@ -2,6 +2,7 @@ import { useInView, useMotionValue, useSpring } from 'motion/react';
 import { useCallback, useEffect, useRef } from 'react';
 
 interface CountUpProps {
+  id?: string;
   to: number;
   from?: number;
   direction?: 'up' | 'down';
@@ -15,6 +16,7 @@ interface CountUpProps {
 }
 
 export default function CountUp({
+  id,
   to,
   from = 0,
   direction = 'up',
@@ -111,5 +113,5 @@ export default function CountUp({
     return () => unsubscribe();
   }, [springValue, formatValue]);
 
-  return <span className={className} ref={ref} />;
+  return <span id={id} className={className} ref={ref} />;
 }
