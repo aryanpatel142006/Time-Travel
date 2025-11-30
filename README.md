@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+<img src="./public/images/portal.gif" width="100%" alt="Reference Image" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ⏳ Temporal Displacement Interface
+"Genesis Event: Timeline established."
+## 🚀 Launch Sequence
+Initiate Time Travel here: https://time-travelling.vercel.app/
 
-Currently, two official plugins are available:
+## 🌌 Mission Brief
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a high-performance visual simulation of a Time Machine, built to explore the boundaries of web-based graphics. It features a retro-futuristic UI, neon synthwave aesthetics, and a "Temporal Displacement" core that reacts to user input.
 
-## React Compiler
+The interface is reminds you of sci-fi terminals, complete with pixel fonts, glowing cyan data readouts, and infinite tunneling visuals.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ⚠️ System Requirements (CRITICAL)
+DETECTED ANOMALY: Safari Browser
+STATUS: UNSUPPORTED
 
-## Expanding the ESLint configuration
+This project utilizes TypeGPU for hardware acceleration. Due to the intense GPU flux required to bend spacetime:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+❌ Safari: Containment Failure. (Not supported due to WebGPU limitations)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+✅ Chrome/Edge/Brave: Stable. (Highly Recommended)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+If you access this via Safari, a custom yellow "System Alert" HUD will guide you to a compatible vessel.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📸 Visual Logs
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+<img src="./public/images/Screenshot 2025-11-30 at 6.05.28 AM.png" width="400" alt="Reference Image" />
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+<img src="./public/images/Screenshot 2025-11-30 at 6.04.41 AM.png" width="400" alt="Reference Image" />
+
+<img src="./public/images/Screenshot 2025-11-30 at 6.05.48 AM.png" width="400" alt="Reference Image" />
+
+
+
+## 🛠️ Tech Stack
+Framework: React / Vite + TypeScript
+
+Graphics Engine: TypeGPU (WebGPU acceleration for TypeScript)
+
+Styling: Tailwind CSS + CSS3 
+
+Deployment: Vercel
+
+## 📟 Installation Protocols
+
+### 1. Clone the Repository:
+    1. git clone https://github.com/[YOUR_USERNAME_GOES_HERE]/Time-Travel
+    2.  cd Time-Travel
+
+### 2. Install Dependencies:
+    npm install
+### 3. Initiate Dev Server:
+     npm run dev
+### Open Portal:
+Navigate to http://localhost:5173 in a Chromium-based browser.
+
+
+
+## License
+
+    Copyright [yyyy] [name of copyright owner]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
