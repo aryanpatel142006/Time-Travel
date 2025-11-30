@@ -7,6 +7,7 @@ import FallingText from './components/FallingText';
 import ASCIIText from './components/ASCIIText';
 import Shuffle from './components/Shuffle';
 import CountUp from './components/CountUp';
+import WarningSignBlack from "./assets/Warning Sign Black.png";
 // import { c } from 'node_modules/typegpu/matrix-DIfOiRyz';
 // import controls from './machine-machenism.tsx';
 
@@ -84,7 +85,7 @@ function App() {
       </div> */}
 
        <div className="top-0 right-0 z-50 translate-y--100 pointer-events-none">
-        <img src="src/assets/Warning Sign Black.png" alt="WARNING: Use Chrome for best experience" className="w-16 h-16 object-contain" />
+        <img src={WarningSignBlack} alt="WARNING: Use Chrome for best experience" className="w-16 h-16 object-contain" />
       </div>
 
 

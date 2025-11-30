@@ -3,7 +3,7 @@ const SpaceBackground = () => {
     <div className="fixed inset-0 z-[-1] w-full h-full pointer-events-none overflow-hidden bg-black">
       
       {/* 1. Base Deep Space (Pure Black) */}
-      <div className="absolute inset-0 bg-black" />
+      <div className="absolute inset-0 bg-black h-full" />
 
       {/* 2. The "Event Horizon" Glow (Purple/Blue from the bottom) 
           This matches your tunnel's color scheme to bridge the gap. */}
