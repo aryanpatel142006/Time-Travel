@@ -84,7 +84,7 @@ function App() {
       </div> */}
 
        <div className="top-0 right-0 z-50 translate-y--100 pointer-events-none">
-        <img src="/src/assets/Warning Sign Black.png" alt="WARNING: Use Chrome for best experience" className="w-16 h-16 object-contain" />
+        <img src="src/assets/Warning Sign Black.png" alt="WARNING: Use Chrome for best experience" className="w-16 h-16 object-contain" />
       </div>
 
 
