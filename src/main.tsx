@@ -6,13 +6,7 @@ import SpaceBackground from './components/SpaceBackground.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-     {/* <div className='text-xl'> 
-        <FuzzyText 
-        baseIntensity={0.2}
-        fontSize = {'clamp(1rem, 4vw, 4rem)'}>
-         404
-        </FuzzyText>
-      </div> */}
+     
     <SpaceBackground />
     <App />
   </StrictMode>,

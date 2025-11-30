@@ -79,6 +79,13 @@ function App() {
   }
   return (
     <>
+      {/* <div className='absolute top-0 right-0 shadow-xl shadow-red-500'>
+        <img src="/src/assets/Warning Sign Black.png" alt=" WARING: USE BROWSERS LIKE SAFARI CANT RUN THIS, TRY USING CHROME INSTEAD ;)" />
+      </div> */}
+
+       <div className="top-0 right-0 z-50 translate-y--100 pointer-events-none">
+        <img src="/src/assets/Warning Sign Black.png" alt="WARNING: Use Chrome for best experience" className="w-16 h-16 object-contain" />
+      </div>
 
 
       <div className='flex justify-center items-center align-center flex-col'> 
@@ -91,7 +98,7 @@ function App() {
       </div>
 
       {/* <div className='w-[1200px] h-[400px] flex justify-center items-center align-center text-center'> */}
-        <div className='w-[1200px] h-[400px] flex justify-center items-center mx-auto text-center'>
+        <div className='max-w-[1200px] h-[400px] flex justify-center items-center mx-auto text-center'>
 
 
         <FallingText 
@@ -123,7 +130,7 @@ function App() {
 
 
 
-      <div className='text-center w-[800px] h-[400px] mx-auto'>
+      <div className='text-center maxw-[800px] h-[400px] mx-auto'>
         <Shuffle
           // className='text-6xl'
           fontSize={'5rem'}
