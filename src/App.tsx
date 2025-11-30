@@ -17,7 +17,9 @@ function App() {
   const [yearInput, setYearInput] = useState<string>('')
   const [currYear, setCurrYear] = useState<number>(2000);
   const [destinationYear, setDestinationYear] = useState<number>(2025);
+  const [startCount, setStartCount] = useState<boolean>(false);
   const dollyRef = useRef<number>(1);
+  const countUpRef = useRef<HTMLDivElement | null>(null);
 
   const animateDolly = async (to: number, duration = 200) => {
     try {
@@ -58,9 +60,23 @@ function App() {
       console.warn('setDollyImmediate failed', e);
     }
   };
+
   // const [DollyZoom, setDollyZoom] = useState(0)
   // const DollyZoomInitial = controls['dolly zoom'].initial;
 
+
+  function duration() {
+    const yearDiff = Math.abs(destinationYear - currYear);
+    // console.log(startCount)
+    if (startCount === false) {
+      return 1;
+    }
+    // if (yearDiff < 100) return 1;
+    if (yearDiff < 1000) return 2;
+    if (yearDiff < 10000) return 5;
+    if (yearDiff < 100000) return 15;
+    return 1;
+  }
   return (
     <>
 
@@ -132,8 +148,8 @@ function App() {
       
       <div className="card">
         
-        <div className='w-[100%] h-[300px] flex flex-col justify-center items-center text-center mx-auto  bg-yellow'>
-          <button onClick={() => setCount((count) => count + 1)} style={{fontSize: '2rem', marginBottom: '20px'}}>
+        <div className='w-[100%] min-h-[300px] flex flex-col justify-center items-center text-center mx-auto  bg-yellow'>
+          <button className='counter-button' onClick={() => setCount((count) => count + 1)} style={{fontSize: '2rem', marginBottom: '20px'}}>
           Year is {count}
         </button>
           Go to year:
@@ -141,37 +157,52 @@ function App() {
             type="text"
             value={yearInput}
             onChange={(e) => setYearInput(e.target.value)}
-            className="ml-2 p-1 border rounded ml-20 text-black text-3xl"
-            style={{width: '100px', fontSize: '2rem', textAlign: 'center', borderRadius: '8px', border: '2px solid #000', backgroundColor: '#fff', color: '#000', fontWeight: 'bold'}}
+            className="year-input"
+            // style={{maxWidth: '200px', fontSize: '2rem', textAlign: 'center', borderRadius: '8px', border: '2px solid #000', backgroundColor: '#fff', color: '#000', fontWeight: 'bold'}}
           />
           <br />
           <button
-            onClick={() => { setCount(Number(yearInput) || 0); setCurrYear(count); setDestinationYear(Number(yearInput) || count); setYearInput(''); }}
-            className="ml-2 px-3 py-1 bg-gray-800 text-white rounded"
+            onClick={() => { 
+              setCount(Number(yearInput) || 0); 
+              setCurrYear(count); 
+              setDestinationYear(Number(yearInput) || count); 
+              // trigger CountUp and snap dolly to fast travel
+              setDollyImmediate(0.01);
+              setStartCount(true);
+                // scroll the CountUp into view so user sees the animation
+                countUpRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              // console.log(startCount);
+              setYearInput('');
+            }}
+            // className='ml-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors text-3xl'
+            className='to-year-button button'
           >
             Go To year {yearInput}
           </button>
 
-          <br />
-          <CountUp
-            from={currYear}
-            to={destinationYear}
-            separator="," 
-            direction="up"
-            duration={1}
-            className="count-up-text extra-class"
-            onStart={() => {
-              // immediately set dolly to the fast-travel zoom and keep it there
-              console.log('CountUp setting dolly zoom for fast-travel');
-              setDollyImmediate(0.01);
-            }}
-            onEnd={() => {
-              // restore zoom back to normal when counting finishes
-              // animateDolly(1, 3000);
-              console.log('CountUp ended, resetting dolly zoom');
-              animateDolly(1, 300); // longer duration for larger year jumps
-            }}
-          />
+          <div ref={countUpRef}>
+            <CountUp
+              from={currYear}
+              to={destinationYear}
+              separator="," 
+              direction="up"
+              duration={duration()} // duration scales with year difference
+              className="count-up-text extra-class glow"
+              onStart={() => {
+                // immediately set dolly to the fast-travel zoom and keep it there
+                console.log('CountUp setting dolly zoom for fast-travel');
+                setDollyImmediate(0.01);
+                console.log(dollyRef.current);
+              }}
+              onEnd={() => {
+                // restore zoom back to normal when counting finishes
+                console.log('CountUp ended, resetting dolly zoom');
+                setStartCount(false);
+                animateDolly(1, 300); // longer duration for larger year jumps
+              }}
+            />
+          </div>
+     
      
         </div>
         

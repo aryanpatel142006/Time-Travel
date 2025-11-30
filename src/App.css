@@ -5,7 +5,7 @@
   /* padding: 2rem; */
   text-align: center;
 }
-button {
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -15,7 +15,83 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+} */
+
+.to-year-button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  /* padding: 0.6em 1.2em; */
+  font-size: 2rem;
+  margin: 3rem;
+  font-weight: 900;
+  font-family: "Solaris", sans-serif;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
 }
+
+.counter-button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  /* font-size: 2rem; */
+  font-size: 4rem !important;
+  margin: 3rem;
+  font-weight: 900;
+  font-family: "quantum", sans-serif;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+
+.year-input {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border: 2px solid #000;
+  border-radius: 8px;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  width: 200px;
+  background-color:aliceblue;
+  color: black;
+  font-family: "osiris", sans-serif;
+}
+
+.year-input:focus {
+  /* outline: none; */
+  margin-top: 1rem;
+  /* border-color: #646cff; */
+  /* border-color: #0ff; */
+  /* border: 4px solid #0ff; */
+  /* box-shadow: #646cff 0px 0px 5px, #646cff 0px 0px 10px; */
+  box-shadow: #0ff 0px 0px 5px, #0ff 0px 0px 10px, #0ff 0px 0px 20px;
+  /* box-shadow: purple 0px 0px 10px, purple 0px 0px 20px, purple 0px 0px 30px, #646cff 0px 0px 30px; */
+
+  /* box-shadow: #0ff 0px 0px 10px, #0ff 0px 0px 20px, #0ff 0px 0px 30px; */
+
+
+   
+}
+
+.year-input:focus ~ .to-year-button{
+      /* border-color: #646cff; */
+      /* border-color: #0ff; */
+
+      box-shadow: purple 0px 0px 10px, purple 0px 0px 20px, purple 0px 0px 30px, #646cff 0px 0px 30px !important;
+    }
+
+
+/* .year-input {
+  max-width: 200px;
+  font-size: 2rem;
+  text-align: center;
+     border-radius: 8px;
+      border: 2px solid #000;
+       background-color: #fff;
+      color: #000;
+      font-weight: bold;
+  } */
 
 .logo {
   /* height: 6em;
@@ -71,6 +147,54 @@ button {
 
 
 .extra-class {
-  color: #ff0000;
+  /* color: #ff0000; */
   font-weight: bold;
+}
+
+/* GlowText.css */
+.glow {
+  /* font-size: 40px; */
+  /* color: #1a1a1a; */
+  
+  text-align: center;
+
+
+
+          /* GLOW THEME ONE */
+  color: #fff; 
+  text-shadow:
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff,
+    0 0 80px #0ff
+;
+    
+
+
+    /* GlowText.css */
+
+
+         /* GLOW THEME TWO  */
+  /* Stacking shadows for a vibrant glow */
+
+  /* color : black;
+  text-shadow:
+    0 0 5px #f0f,
+    0 0 20px #00f,
+    0 0 10px #f00,
+    0 0 40px #f0f,
+    0 0 20px #00f,
+    0 0 80px red,
+    0 0 80px #f0f,
+    0 0 40px #00f,
+    0 0 20px red,
+    0 0 100px #f00; */
+
+
 }

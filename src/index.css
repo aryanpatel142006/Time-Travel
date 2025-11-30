@@ -11,6 +11,36 @@
   src: url(./assets/fonts/digital_numbers/fonts/DigitalNumbers-Regular.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "Solaris";
+  src: url(./assets/fonts/solaris/Solaris.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Osiris";
+  src: url(./assets/fonts/cm-osiris-futuristic-font-3966420/Osiris.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Exodar";
+  src: url(./assets/fonts/Exodar-Font/Exodar-Outline.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Giaza";
+  src: url(./assets/fonts/Giaza-Stencil/Giaza\ Stencil.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "minimal";
+  src: url(./assets/fonts/minimal-gauge-font/MinimalGauge-7jXD.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "quantum";
+  src: url(./assets/fonts/quantum-font/Quantum-eZOXg.ttf) format("truetype");
+}
+
 * {
   box-sizing: border-box;
   /* padding: 0;
@@ -65,7 +95,9 @@ h1 {
 
 
 button:hover {
-  border-color: #646cff;
+  /* border-color: #646cff; */
+  border-color: purple;
+  /* box-shadow: purple 0px 0px 10px, purple 0px 0px 20px, purple 0px 0px 30px; */
 }
 button:focus,
 button:focus-visible {
@@ -80,7 +112,7 @@ button:focus-visible {
   a:hover {
     color: #747bff;
   }
-  button {
+  /* button {
     background-color: #f9f9f9;
-  }
+  } */
 }
